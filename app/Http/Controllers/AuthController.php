@@ -18,6 +18,6 @@ class AuthController extends Controller
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        return response()->json($result);
+        return response()->json($result)->header('Access-Control-Allow-Origin', '*');
     }
 }
