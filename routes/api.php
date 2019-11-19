@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use \App\Http\Controllers\AuthController;
+use \App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,4 +17,5 @@ use \App\Http\Controllers\AuthController;
 
 Route::group([], function () {
     Route::post('/login', ['uses' => AuthController::class.'@login']);
+    Route::post('/student', ['uses' => StudentController::class.'@create']);
 });
