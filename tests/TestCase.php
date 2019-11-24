@@ -14,16 +14,17 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
-        //$this->clearDatabaseSchema();
+        $this->clearDatabaseSchema();
 
         $this->artisan("cache:clear");
-        $this->artisan('migrate', ['--path' => '/database/migrations/*']);
+        $this->artisan("migrate");
     }
 
-    public function clearDatabaseSchema($schema = 'public')
+    public function clearDatabaseSchema($schema = 'laravel')
     {
-        //DB::unprepared("DROP DATABASE IF EXISTS {$schema} cascade");
-        //DB::unprepared("CREATE DATABASE {$schema}");
+        DB::unprepared("drop database {$schema}");
+        DB::unprepared("CREATE DATABASE {$schema}");
+        DB::unprepared("use {$schema}");
     }
 }
 
