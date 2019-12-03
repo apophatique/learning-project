@@ -6,7 +6,7 @@ use App\Services\StudentService;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
-class UpdateStudentRequest extends FormRequest
+class DeleteStudentRequest extends FormRequest
 {
     public function authorize()
     {
@@ -15,12 +15,7 @@ class UpdateStudentRequest extends FormRequest
 
     public function rules()
     {
-        return [
-            'email' => 'string|nullable',
-            'group' => 'string|nullable',
-            'subgroup' => 'integer|in:1,2|nullable',
-            'card_number' => 'string|nullable'
-        ];
+        return [];
     }
 
     public function validateResolved()

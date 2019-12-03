@@ -26,4 +26,21 @@ class StudentService
     {
         return $this->studentModel->update($where, $data);
     }
+
+    public function delete($id)
+    {
+        return $this->studentModel->delete($id);
+    }
+
+    public function search($filters)
+    {
+        return $this->studentModel
+            ->all()
+            ->toArray();
+    }
+
+    public function exists($where)
+    {
+        return $this->studentModel->where($where)->exists();
+    }
 }

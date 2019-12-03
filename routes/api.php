@@ -18,4 +18,7 @@ use \App\Http\Controllers\StudentController;
 Route::group([], function () {
     Route::post('/login', ['uses' => AuthController::class.'@login']);
     Route::post('/student', ['uses' => StudentController::class.'@create']);
+    Route::delete('/student/{id}', ['uses' => StudentController::class.'@delete']);
+    Route::get('/student', ['uses' => StudentController::class.'@search']);
+    Route::put('/student/{id}', ['uses' => StudentController::class.'@update']);
 });

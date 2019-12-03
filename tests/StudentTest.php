@@ -8,21 +8,35 @@ class StudentTest extends TestCase
     public function testCreate()
     {
 
-        $student = $this->getJsonFixture('create_student.json');
+        $student = $this->getJsonFixture('StudentTest', 'create_student.json');
 
         $response = $this->json('post', '/student', $student);
 
         $response->assertStatus(Response::HTTP_OK);
     }
 
-    public function getJsonFixture($name)
+    public function testUpdate()
     {
-        $path = base_path("tests/fixtures/Student/{$name}");
+        $student = $this->getJsonFixture('StudentTest', 'update_student.json');
 
-        if (file_exists($path)) {
-            return json_decode(file_get_contents($path), true);
-        }
+        $response = $this->json('put', '/student/1', $student);
 
-        //todo: add exception
+        $response->assertStatus(Response::HTTP_NO_CONTENT);
+    }
+
+    public function testDelete()
+    {
+        $response = $this->json('delete', '/student/1');
+
+        $response->assertStatus(Response::HTTP_OK);
+    }
+
+    public function testSearch()
+    {
+        $actual = $this->json('get', '/student');
+
+        $expected = $this->getJsonFixture('StudentTest', 'search_student.json');
+
+        $this->assertEquals($expected, $actual->json());
     }
 }
