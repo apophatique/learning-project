@@ -41,6 +41,8 @@ class StudentService
 
     public function exists($where)
     {
-        return $this->studentModel->where($where)->exists();
+        return $this->studentModel
+            ->where($where)
+            ->exists();
     }
 }
