@@ -15,7 +15,9 @@ use \App\Http\Controllers\StudentController;
 |
 */
 
-Route::group([], function () {
+Route::group([
+    'middleware' => ['cors'],
+], function () {
     Route::post('/login', ['uses' => AuthController::class.'@login']);
     Route::post('/student', ['uses' => StudentController::class.'@create']);
     Route::delete('/student/{id}', ['uses' => StudentController::class.'@delete']);
