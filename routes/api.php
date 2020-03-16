@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\StudentController;
+use \App\Http\Controllers\FurnitureController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,8 +20,14 @@ Route::group([
     'middleware' => ['cors'],
 ], function () {
     Route::post('/login', ['uses' => AuthController::class.'@login']);
+
     Route::post('/student', ['uses' => StudentController::class.'@create']);
     Route::delete('/student/{id}', ['uses' => StudentController::class.'@delete']);
     Route::get('/student', ['uses' => StudentController::class.'@search']);
     Route::put('/student/{id}', ['uses' => StudentController::class.'@update']);
+
+    Route::post('/furniture', ['uses' => FurnitureController::class.'@create']);
+    Route::delete('/furniture/{id}', ['uses' => FurnitureController::class.'@delete']);
+    Route::get('/furniture', ['uses' => FurnitureController::class.'@search']);
+    Route::put('/furniture/{id}', ['uses' => FurnitureController::class.'@update']);
 });
