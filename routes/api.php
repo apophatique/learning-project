@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\StudentController;
 use \App\Http\Controllers\FurnitureController;
+use \App\Http\Controllers\TelegramController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,6 @@ Route::group([
     Route::delete('/furniture/{id}', ['uses' => FurnitureController::class.'@delete']);
     Route::get('/furniture', ['uses' => FurnitureController::class.'@search']);
     Route::put('/furniture/{id}', ['uses' => FurnitureController::class.'@update']);
+
+    Route::get('/telegram-auth', ['uses' => TelegramController::class.'@auth']);
 });
