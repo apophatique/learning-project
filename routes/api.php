@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use \App\Http\Controllers\AuthController;
 use \App\Http\Controllers\StudentController;
+use \App\Http\Controllers\ClothesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,4 +24,10 @@ Route::group([
     Route::delete('/student/{id}', ['uses' => StudentController::class.'@delete']);
     Route::get('/student', ['uses' => StudentController::class.'@search']);
     Route::put('/student/{id}', ['uses' => StudentController::class.'@update']);
+
+    Route::get('/clothes', ['uses' => ClothesController::class.'@getAll']);
+    Route::get('/clothes/{id}', ['uses' => ClothesController::class.'@get']);
+    Route::put('/clothes/{id}', ['uses' => ClothesController::class.'@update']);
+    Route::delete('/clothes/{id}', ['uses' => ClothesController::class.'@delete']);
+    Route::post('/clothes', ['uses' => ClothesController::class.'@create']);
 });

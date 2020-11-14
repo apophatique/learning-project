@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\ClothesController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,3 +14,10 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/clothes', ['uses' => ClothesController::class.'getAllClothes']);
+Route::get('/clothes/{id}', ['uses' => ClothesController::class.'getClothing']);
+Route::put('/clothes/{id}', ['uses' => ClothesController::class.'updateClothing']);
+Route::delete('/clothes/{id}', ['uses' => ClothesController::class.'deleteClothing']);
+
+Route::post('/clothes', ['uses' => ClothesController::class.'addNewClothing']);

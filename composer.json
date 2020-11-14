@@ -1,4 +1,5 @@
 {
+    "paragonie/random_compat": "2.*",
     "name": "laravel/laravel",
     "type": "project",
     "description": "The Laravel Framework.",
@@ -8,6 +9,7 @@
     ],
     "license": "MIT",
     "require": {
+        "rackspace/php-opencloud": "dev-master",
         "php": "^7.2",
         "barryvdh/laravel-cors": "^0.11.4",
         "fideloper/proxy": "^4.0",

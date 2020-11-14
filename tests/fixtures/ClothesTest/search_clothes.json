@@ -1,0 +1,16 @@
+[
+    {
+        "id": 1,
+        "size": 52,
+        "brand": "Nike",
+        "type":"t-shirt",
+        "name": "t-shirt 2020"
+    },
+    {
+        "id": 2,
+        "size": 48,
+        "brand": "Nike",
+        "type":"zxc",
+        "name": "123"
+    }
+]
